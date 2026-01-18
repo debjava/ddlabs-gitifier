@@ -54,7 +54,12 @@ public class GitPanelComponent {
     }
 
     private void createGitInfoLabel() {
-        JLabel infoLbl = new JLabel("Enter below Git username and token");
+        String gitTableInfoMsg = MessageBundle.message("git.panel.table.info.msg");
+        JLabel infoLbl = new JLabel(gitTableInfoMsg);
+
+        infoLbl.setFont(infoLbl.getFont().deriveFont(Font.BOLD, 13f));
+
+//        JLabel infoLbl = new JLabel("Enter below Git username and token");
         GridBagConstraints gbc_infoLbl = new GridBagConstraints();
         gbc_infoLbl.insets = new Insets(0, 0, 5, 5);
         gbc_infoLbl.gridx = 1;
@@ -121,15 +126,19 @@ public class GitPanelComponent {
         GridBagConstraints gbc_gitInfoTable = new GridBagConstraints();
         gbc_gitInfoTable.gridwidth = 7;
         gbc_gitInfoTable.insets = new Insets(0, 0, 5, 5);
+//        gbc_gitInfoTable.insets = new Insets(1, 0, 5, 5);
         gbc_gitInfoTable.fill = GridBagConstraints.BOTH;
         gbc_gitInfoTable.gridx = 1;
         gbc_gitInfoTable.gridy = 2;
+//        gbc_gitInfoTable.gridy = 3;
         mainPanel.add(scrollPane, gbc_gitInfoTable);
     }
 
     private void addRowButton() {
         JButton addRowBtn = new JButton("");//new JButton("Add");
-        addRowBtn.setToolTipText("Click to add new row to input Hosted git username and token");
+        String rowBtnTooltipMsg = MessageBundle.message("row.btn.tooltip.text.msg");
+        addRowBtn.setToolTipText(rowBtnTooltipMsg);
+//        addRowBtn.setToolTipText("Click to add new row to input Hosted git username and token");
         addRowBtn.setIcon(new ImageIcon(getClass().getResource("/icons/add_1_24.png")));
         GridBagConstraints gbc_addRowBtn = new GridBagConstraints();
         gbc_addRowBtn.insets = new Insets(0, 0, 5, 0);
