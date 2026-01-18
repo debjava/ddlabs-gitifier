@@ -7,8 +7,9 @@ import java.awt.*;
 public class DeleteButtonRenderer extends JButton implements TableCellRenderer {
 
     public DeleteButtonRenderer() {
-        setText("Remove");
+//        setText("Remove");
         setForeground(Color.RED);
+        setIcon(new ImageIcon(DeleteButtonRenderer.class.getResource("/icons/delete-16_1.png")));
     }
 
     @Override

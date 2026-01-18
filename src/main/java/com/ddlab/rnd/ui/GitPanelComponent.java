@@ -86,13 +86,13 @@ public class GitPanelComponent {
 
                 switch (col) {
                     case 0:
-                        return "Select Git provider (GitHub, GitLab, Bitbucket)";
+                        return MessageBundle.message("table.git.column.combo.tooltip.txt");
                     case 1:
-                        return "Double Click to enter the user name";
+                        return MessageBundle.message("table.git.column.username.tooltip.txt");
                     case 2:
-                        return "Double Click to enter the git token";
+                        return MessageBundle.message("table.git.column.token.tooltip.txt");
                     case 3:
-                        return "Click to remove this row";
+                        return MessageBundle.message("table.git.column.remove.tooltip.txt");
                     default:
                         return value != null ? value.toString() : null;
                 }
