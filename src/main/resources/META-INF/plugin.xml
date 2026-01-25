@@ -2,8 +2,7 @@
 <idea-plugin>
     <id>com.ddlab.rnd.ddlabs-gitifier</id>
     <name>DDLABS-Gitifier</name>
-    <vendor url="https://www.ddlabsinc.com">DDLABS INC</vendor>
-
+    <vendor url="https://www.ddlabsinc.com">DDLABS INC, Debadatta Mishra</vendor>
     <description><![CDATA[
     <html>
 <body>

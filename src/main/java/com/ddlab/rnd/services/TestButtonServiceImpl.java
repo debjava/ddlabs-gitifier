@@ -1,8 +1,8 @@
 package com.ddlab.rnd.services;
 
+import com.ddlab.rnd.constants.MessageBundle;
 import com.ddlab.rnd.git.model.UserAccount;
 import com.ddlab.rnd.handler.HostedGitType;
-//import com.ddlab.rnd.handler.IGitHandler;
 import com.ddlab.rnd.handler.IGitHandler;
 import com.ddlab.rnd.setting.PublisherSetting;
 import com.intellij.openapi.application.ApplicationManager;
@@ -24,7 +24,8 @@ public class TestButtonServiceImpl {
 
     public static CompletableFuture<String[]> getRepos(String selectedGitType, UserAccount userAccount) {
         CompletableFuture<String[]> future = new CompletableFuture<>();
-        ProgressManager.getInstance().run(new Task.Modal(null, "Compute Value", true) {
+        String progressMsg = MessageBundle.message("test.button.progress.action.msg");
+        ProgressManager.getInstance().run(new Task.Modal(null, progressMsg, true) {
             @Override
             public void run(@NotNull ProgressIndicator indicator) {
                 try {
