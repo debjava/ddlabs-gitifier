@@ -137,25 +137,6 @@ public class GitUtil {
             }
         }
         log.debug("Multi Remote origin added ... ");
-
-//        Repository repository = new FileRepositoryBuilder()
-//                .setGitDir(new File(repoDir, ".git"))
-//                .build();
-//        if (repository.getConfig().getSubsections("remote").contains(gitTypeUserName)) {
-//            log.debug("Remote already exists");
-//            // Do not add
-//        } else {
-//            RemoteConfig remoteConfig =
-//                    new RemoteConfig(repository.getConfig(), gitTypeUserName);
-//
-//            remoteConfig.addURI(new URIish(remoteUrl));
-//
-//            // Save to .git/config
-//            remoteConfig.update(repository.getConfig());
-//            repository.getConfig().save();
-//        }
-//        repository.close();
-//        log.debug("Multi Remote origin added ... ");
     }
 
     @Deprecated
@@ -209,15 +190,6 @@ public class GitUtil {
         }
     }
 
-//    public static void pushRepo(String repoDir, UsernamePasswordCredentialsProvider credentialsProvider)
-//            throws IOException, GitAPIException {
-//        try (Git git = Git.open(new File(repoDir))) {
-//            git.push().setRemote("origin").add("main") // push local main branch
-//                    .setCredentialsProvider(credentialsProvider).call();
-//            System.out.println("Pushed successfully!");
-//        }
-//    }
-
     public static void multiPushRepo(String repoDir, String gitTypeUserName,
                                      UsernamePasswordCredentialsProvider credentialsProvider) throws IOException, GitAPIException {
         try (Git git = Git.open(new File(repoDir))) {
@@ -240,8 +212,8 @@ public class GitUtil {
             String userName = config.getString("user", null, "name");
             String userEmail = config.getString("user", null, "email");
 
-            System.out.println("User Name : " + userName);
-            System.out.println("User Email: " + userEmail);
+            log.debug("User Name : " + userName);
+            log.debug("User Email: " + userEmail);
 
             // ---- Remote URLs ----
             Set<String> remotes = config.getSubsections("remote");
@@ -278,35 +250,6 @@ public class GitUtil {
                 userCloneUrlMap.put(remote, url);
             }
         }
-
-
-
-
-
-//        Repository repository = null;
-//        try {
-//            File gitDir = new FileRepositoryBuilder().findGitDir(new File(projDirPath)).getGitDir();
-//            if (gitDir != null) {
-//                FileRepositoryBuilder builder = new FileRepositoryBuilder();
-//                repository = builder.setGitDir(new File(projDirPath + File.separator + ".git")).readEnvironment()
-//                        .findGitDir().build();
-//
-//                StoredConfig config = repository.getConfig();
-//
-//                Set<String> remotes = config.getSubsections("remote");
-//                for (String remote : remotes) {
-//                    String url = config.getString("remote", remote, "url");
-////					System.out.println("Remote [" + remote + "] URL: " + url);
-//
-//                    userCloneUrlMap.put(remote, url);
-//                }
-//            }
-//        } catch (Exception ex) {
-//            log.error("Unable to read .git directory ...{}", ex);
-//        } finally {
-//            if (repository != null)
-//                repository.close();
-//        }
         return userCloneUrlMap;
     }
 
@@ -374,22 +317,5 @@ public class GitUtil {
             config.save();
             log.debug("Branch added successfully ...");
         }
-
-
-//        Repository repository = new FileRepositoryBuilder()
-//                .findGitDir(new File(projDirPath + File.separator + ".git"))
-//                .build();
-//
-//        StoredConfig config = repository.getConfig();
-//
-//        // branch.master.remote = origin
-//        config.setString("branch", branchName, "remote", "origin");
-//
-//        // branch.master.merge = refs/heads/master
-//        config.setString("branch", branchName, "merge", "refs/heads/" + branchName);
-//
-//        config.save();
-//
-//        repository.close();
     }
 }

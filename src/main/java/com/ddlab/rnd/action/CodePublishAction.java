@@ -4,6 +4,7 @@ import com.ddlab.rnd.ui.dialog.CodeSharingDialog;
 import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.openapi.vfs.LocalFileSystem;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
@@ -28,7 +29,7 @@ public class CodePublishAction extends AnAction  {
 
         boolean visible = project != null
                 && selectedFile != null
-                && selectedFile.equals(project.getBaseDir());
+                && selectedFile.equals(LocalFileSystem.getInstance().findFileByPath(project.getBasePath()));
 
         presentation.setEnabledAndVisible(visible);
     }

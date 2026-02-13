@@ -55,14 +55,10 @@ public class HttpUtil {
 		try (CloseableHttpClient httpClient = getTrustedHttpClient()) {
 			HttpClientResponseHandler<GitOnlineResponse> responseHandler = (ClassicHttpResponse response) -> {
 				int statusCode = response.getCode();
-//				log.debug("Status Code: {}",statusCode);
 				String responseBody = response.getEntity() != null
 						? EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8)
 						: "";
-//				log.debug("Response Body: {}", responseBody);
 				GitOnlineResponse httpResponse = new GitOnlineResponse(statusCode, responseBody);
-//				log.debug("Raw Response Bode: {}", httpResponse);
-//				return new GitOnlineResponse(statusCode, responseBody);
 				return httpResponse;
 			};
 

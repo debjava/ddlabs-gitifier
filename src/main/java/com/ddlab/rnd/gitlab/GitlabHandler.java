@@ -17,6 +17,7 @@ import org.apache.hc.client5.http.classic.methods.HttpPost;
 import tools.jackson.databind.ObjectMapper;
 
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,8 +39,8 @@ public class GitlabHandler implements IGitHandler {
     public String getCloneUrlAfterRepoCreation(String repoName, String repoDescription) throws Exception {
         String cloneUrl = null;
         GitLabRepo gitRepo = null;
-        repoDescription = URLEncoder.encode(repoDescription, "UTF-8");
-        repoName = URLEncoder.encode(repoName, "UTF-8");
+        repoDescription = URLEncoder.encode(repoDescription, StandardCharsets.UTF_8);
+        repoName = URLEncoder.encode(repoName, StandardCharsets.UTF_8);
         String gitlabRepoCreateApi = ConfigReaderUtil.getMessage("gitlab.repo.create.api");
         MessageFormat formatter = new MessageFormat(gitlabRepoCreateApi);
         String uri = formatter
@@ -153,7 +154,6 @@ public class GitlabHandler implements IGitHandler {
         return errResponse;
     }
 
-    @Deprecated
     private GitOnlineErrorResponse getError(String jsonResponse) {
         ObjectMapper mapper = new ObjectMapper();
         GitOnlineErrorResponse errResponse = mapper.readValue(jsonResponse, GitOnlineErrorResponse.class);

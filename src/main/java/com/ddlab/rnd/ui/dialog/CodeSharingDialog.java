@@ -61,15 +61,6 @@ public class CodeSharingDialog extends DialogWrapper {
         UIUtil.saveLastSessionSetting(hostedGitTypeCombo, slGitUserNameCombo);
     }
 
-//    private void showMessage() {
-//        PublisherSetting setting = PublisherSetting.getInstance();
-//        Map<String, String> gitSettingMap = setting.getGitInfoTableMap();
-//        Map<String, String> tableMap = setting.getGitInfoTableMap();
-//        if (gitSettingMap.isEmpty()) {
-//            CommonUIUtil.showError(project, "Fill up the information...");
-//        }
-//    }
-
     private void attachValidationListener() {
         JTextArea textArea = codePublishPanelComponent.getTextArea();
         textArea.getDocument().addDocumentListener(new DocumentAdapter() {
@@ -108,70 +99,4 @@ public class CodeSharingDialog extends DialogWrapper {
         });
     }
 
-//    private CompletableFuture<String> performSharing(Project project) {
-//        CompletableFuture<String> future = new CompletableFuture<>();
-//        ProgressManager.getInstance().run(new Task.Backgroundable(project, "Code Sharing", true) {
-//            @Override
-//            public void run(@NotNull ProgressIndicator indicator) {
-//                try {
-//                    indicator.setIndeterminate(true);
-//                    indicator.setText("Generating files ...");
-//                    String repoBasePath = project.getBasePath();
-//                    File reposBaseDir = new File(repoBasePath);
-//                    String projectName = project.getName();
-//                    String briefRepoDesc = codePublishPanelComponent.getTextArea().getText();
-//                    GeneratorUtil.createGitIgnoreFile(reposBaseDir);
-//                    GeneratorUtil.createReadMeMdFile(reposBaseDir, projectName, briefRepoDesc);
-//
-//                    indicator.setText("Sharing code ...");
-//                    shareCode();
-//
-//                    future.complete("Success");
-//                } catch (Exception ex) {
-//                    future.completeExceptionally(ex);
-//                    log.error("Error Messages to get Snyk Issues: {}", ex.getMessage());
-//                }
-//                log.debug("\n************** END - TRACKING DATA FOR ANALYSIS **************\n");
-//            }
-//
-//            @Override
-//            public void onCancel() {
-//                future.completeExceptionally(new CancellationException("Task cancelled"));
-//            }
-//        });
-//
-//        return future;
-//    }
-//
-//    private void shareCode() throws Exception {
-//        String selectedGitType = (String) codePublishPanelComponent.getHostedGitTypeCombo().getSelectedItem();
-//        UserAccount userAccount = UIUtil.getSelectedUserAccount(codePublishPanelComponent.getHostedGitTypeCombo(),
-//                codePublishPanelComponent.getSlGitUserNameCombo());
-//        IGitHandler gitHandler = HostedGitType.fromString(selectedGitType).getGitHandler(userAccount);
-//        String repoName = project.getName();
-//        String repoBaseDirPath = project.getBasePath();
-//        boolean repoExistFlag = gitHandler.repoExists(repoName);
-//        boolean gitDirAvlFlag = GitUtil.gitDirExists(repoBaseDirPath);
-//        String briefRepoDesc = codePublishPanelComponent.getTextArea().getText();
-//        String branchName = gitHandler.getGitType().equalsIgnoreCase("bitbucket") ? "main" : "master";
-//        if (!repoExistFlag && !gitDirAvlFlag) {
-//            // It is a brand new repository to be hosted
-//            log.debug("Brand new repository to be created ........");
-//            GitUtil.createOnlineRepo(repoBaseDirPath, gitHandler, briefRepoDesc, branchName);
-//        } else if (repoExistFlag && gitDirAvlFlag) {
-//            log.debug("Repo already exists and .dit dir already available........");
-//            // Repo is available to a registed user and .git dir available
-//            // update to the registered user
-//            GitUtil.updateOnlineRepo(repoBaseDirPath, gitHandler, briefRepoDesc);
-//        } else if (repoExistFlag && !gitDirAvlFlag) {
-//            log.error("Repo already exists and .git dir not available........");
-//            // throw the exception for non-registered user.
-//            throw new RepoExistException("A repository with the same name already exists, please clone and push the changes.");
-//        } else if (!repoExistFlag && gitDirAvlFlag) {
-//            // Repo is not available to a user, but .git dir available
-//            // Read the user information and push code
-//            log.debug("Repo does not exist and .git dir available........");
-//            GitUtil.createOnlineRepo(repoBaseDirPath, gitHandler, briefRepoDesc, branchName);
-//        }
-//    }
 }

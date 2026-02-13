@@ -1,5 +1,7 @@
 package com.ddlab.rnd.ui.table;
 
+import com.intellij.ui.JBColor;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
@@ -14,7 +16,7 @@ public class DeleteCellEditor extends AbstractCellEditor implements TableCellEdi
         this.table = table;
 
         button = new JButton("Remove");
-        button.setForeground(java.awt.Color.RED);
+        button.setForeground(JBColor.RED);
 
         button.addActionListener(e -> {
             rowToDelete = table.getEditingRow();

@@ -1,5 +1,7 @@
 package com.ddlab.rnd.ui.table;
 
+import com.intellij.ui.JBColor;
+
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
@@ -8,7 +10,7 @@ public class DeleteButtonRenderer extends JButton implements TableCellRenderer {
 
     public DeleteButtonRenderer() {
 //        setText("Remove");
-        setForeground(Color.RED);
+        setForeground(JBColor.RED);
         setIcon(new ImageIcon(DeleteButtonRenderer.class.getResource("/icons/delete-16_1.png")));
     }
 

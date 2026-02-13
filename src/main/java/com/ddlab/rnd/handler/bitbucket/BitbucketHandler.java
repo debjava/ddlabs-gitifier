@@ -148,8 +148,6 @@ public class BitbucketHandler implements IGitHandler {
         } else {
             errResponse = new GitOnlineErrorResponse(String.valueOf(gitResponse.getStatusCode()), "Unable to find the user, check the credentials.");
         }
-//		GitOnlineErrorResponse errResponse = mapper.readValue(gitResponse.getResponseText(), GitOnlineErrorResponse.class);
-//		errResponse.setStatus(String.valueOf(gitResponse.getStatusCode()));
         return errResponse;
     }
 

@@ -1,15 +1,5 @@
 package com.ddlab.rnd.github;
 
-import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.List;
-
-//import com.ddlab.rnd.constants.CommonConstants;
-import com.ddlab.rnd.util.ConfigReaderUtil;
-import org.apache.hc.client5.http.classic.methods.HttpGet;
-import org.apache.hc.client5.http.classic.methods.HttpPost;
-import org.apache.hc.core5.http.io.entity.StringEntity;
-
 import com.ddlab.rnd.exception.BadCredentialsException;
 import com.ddlab.rnd.git.model.GitOnlineErrorResponse;
 import com.ddlab.rnd.git.model.GitOnlineResponse;
@@ -18,15 +8,20 @@ import com.ddlab.rnd.git.model.UserAccount;
 import com.ddlab.rnd.github.model.GitHubRepo;
 import com.ddlab.rnd.github.model.HostedRepo;
 import com.ddlab.rnd.handler.IGitHandler;
+import com.ddlab.rnd.util.ConfigReaderUtil;
 import com.ddlab.rnd.util.HttpUtil;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.hc.client5.http.classic.methods.HttpGet;
+import org.apache.hc.client5.http.classic.methods.HttpPost;
+import org.apache.hc.core5.http.io.entity.StringEntity;
 import tools.jackson.databind.ObjectMapper;
+
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @Data
@@ -153,7 +148,8 @@ public class GithubHandler implements IGitHandler {
                 throw new RuntimeException("Unable to create repo ...");
             }
         } catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            log.error("Exception in GithubHandler.getNewlyCreatedHostedRepo(): \n{}", e);
             throw e;
         }
         return gitRepo;
