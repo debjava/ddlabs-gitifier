@@ -1,0 +1,210 @@
+<!-- Plugin Configuration File: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>com.ddlab.rnd.ddlabs-gitifier</id>
+    <name>DDLABS-Gitifier</name>
+    <vendor url="https://www.ddlabsinc.com">DDLABS INC, Debadatta Mishra</vendor>
+    <description><![CDATA[
+    <html>
+<body>
+	Gitifier is a free and open-source light-weight IntelliJ IDEA plugin
+	that allows developers to easily share their complete codebase directly
+	to
+	<a href="https://github.com/"><b>GitHub.com</b></a>,
+	<a href="https://gitlab.com/"><b>GitLab.com</b></a> or
+	<a href="https://bitbucket.org/"><b>Bitbucket.com</b></a>. This plugin
+	does not provide complete git functionality, it only provides an easy
+	way to keep the code in
+	<a href="https://github.com/"><b>GitHub.com</b></a>,
+	<a href="https://gitlab.com/"><b>GitLab.com</b></a> or
+	<a href="https://bitbucket.org/"><b>Bitbucket.com</b></a> for future
+	references. This plugin is not intended to replace full Git
+	functionality. Instead, it provides a simple way to preserve and
+	reference code on these platforms. Often, valuable code written for
+	proofs of concept (POCs) is lost or forgotten over time. Gitifier helps
+	prevent this by offering a convenient solution to save and share your
+	work for future use and collaboration. With Gitifier, you can preserve,
+	showcase, and share your code with ease, keeping your ideas alive for
+	future inspiration and collaboration.
+
+	<b>Gitifier</b> supports the following environments:
+	<ul>
+		<li><b>Windows: 386, AMD64, and ARM64</b></li>
+		<li><b>MacOS: AMD64 and ARM64</b></li>
+		<li><b>Linux Alpine: 386 and AMD64</b></li>
+		<li><b>Linux: 386, AMD64, and ARM64</b></li>
+	</ul>
+
+	<h3>🔑Key Features:</h3>
+	<ul>
+		<li><b>Idea/Poc Preservation:</b> Your ideas deserve to be saved.
+			Gitifier makes sharing effortless.</li>
+		<li><b>One Click Sharing:</b> From IntelliJ idea to GitHub,
+			Gitlab, or Bitbucket—Gitifier keeps your code future-ready.</li>
+	</ul>
+
+	<h3>🌟 Why Gitifier:</h3>
+	In modern development, valuable code is often created during
+	experiments, prototypes, or proofs of concept. Unfortunately, much of
+	this work is left behind and eventually forgotten. Gitifier addresses
+	this problem by making it effortless to preserve and share entire
+	codebases directly from IntelliJ IDEA to platforms like
+	<b>GitHub</b>,
+	<b>Gitlab</b>, or
+	<b>Bitbucket</b>.
+
+	<h3>❤️ Why You’ll Love It</h3>
+	<b>Gitifier</b> is a small light-weight plugin which ensures the
+	following.
+	<ul>
+		<li><b>Ideas aren’t lost:</b> Even quick prototypes can be saved
+			for future reference.</li>
+		<li><b>Collaboration is easier:</b> Teams can access and build
+			upon shared codebases without complex Git setup.
+		<li><b>Knowledge is retained:</b> Developers can revisit past
+			work, learn from it, or repurpose it for new projects.
+		<li><b>Time is saved:</b> Instead of manually configuring
+			repositories, Gitifier provides a streamlined path to keep code safe
+			and accessible.</li>
+	</ul>
+
+	<h3>🌐 How to generate token and usage in Gitifier Setting</h3>
+	❌ Do not generate Github fine grained token
+	<h4>💻Generate Github Classic Token</h4>
+	Follow the steps below:
+	<ul>
+		<li>Log in to github.com</li>
+		<li>Click on your profile picture in the upper-right corner of
+			any page, then select Settings from the dropdown menu.</li>
+		<li>In the left sidebar, scroll down and click on Developer
+			settings.</li>
+		<li>In the left sidebar, under "Personal access tokens," click on
+			Tokens (classic)</li>
+		<li>Click the Generate new token button, then select Generate new
+			token (classic).</li>
+		<li>In the "Note" field, enter a descriptive name for your token
+			to help you remember its purpose.
+		<li>Set an expiration date for the token.</li>
+		<li>Select the scopes (permissions), click on the following
+			checkbox.</li>
+		<b>repo</b>,
+		<b>workflow</b>,
+		<b>write:packages</b>,
+		<b>delete:packages</b>,
+		<b>admin:org</b>,
+		<b>notifications</b>,
+		<b>user</b>,
+		<b>delete_repo</b>,
+		<b>codespace</b>,
+		<b>project</b>
+		<li>Finally click on Generate token button at the bottom of the
+			page.</li>
+		<li>Immediately copy the generated token and save it in a secure
+			location.</li>
+		<li>Go to Use Gitifier setting, double click <strong>Username</strong>
+			column and provide your username along with email id and paste the
+			generated token in the <strong>Token</strong> column.
+		</li>
+	</ul>
+	<h4>💻Generate Gitlab Personal Access Token</h4>
+	<ul>
+		<li>Sign in to your GitLab account.</li>
+		<li>In the upper-right corner, select your avatar from the
+			dropdown menu, then choose <strong>Edit profile</strong>.
+		</li>
+		<li>On the left sidebar, select <strong>Personal Access
+				Tokens</strong>.
+		</li>
+		<li>Click the <strong>Add new token</strong> button.
+		</li>
+		<li>In the <strong>Token name</strong> field, enter a descriptive
+			name for the token.
+		</li>
+		<li>In the <strong>Expiration date</strong> field, set an
+			expiration date as a security best practice.
+		</li>
+		<li>Select the following desired scopes (permissions) for the
+			token:</li>
+		<b>read_user</b>,
+		<b>read_repository</b>,
+		<b>read_api</b>,
+		<b>self_rotate</b>,
+		<b>write_repository</b>,
+		<b>api</b>
+		<li>Finally click on <b>Create token</b></li>
+		<li>Immediately copy the generated token and save it in a secure
+			location</li>
+		<li>Go to Use Gitifier setting, double click <strong>Username</strong>
+			column and provide your username along with email id and paste the
+			generated token in the <strong>Token</strong> column.
+		</li>
+	</ul>
+	<h4>💻Generate Bitbucket Access Token</h4>
+	<ul>
+		<li>Go to <a href="https://bitbucket.org">bitbucket.org</a>,
+			click on the settings icon, or use this link: <a
+			href="https://bitbucket.org/account/settings/app-passwords/">Bitbucket
+				App Passwords</a>.
+		</li>
+		<li>Click on this link: <a
+			href="https://id.atlassian.com/manage-profile/security/api-tokens">Atlassian
+				API Tokens</a>.
+		</li>
+		<li>Click the blue button <strong>"Create API token with
+				scopes"</strong>.
+		</li>
+		<li>Provide a name and expiration date, then click <strong>Next</strong>
+			and select the <strong>"Bitbucket"</strong> radio button.
+		</li>
+		<li>Open the <strong>Scope actions</strong> dropdown, select <strong>All</strong>,
+			and check all boxes to save time.
+		</li>
+		<li>Click the <strong>Create token</strong> button.
+		</li>
+		<li>Immediately copy the generated token and save it in a secure
+			location.</li>
+		<li>Go to Use Gitifier setting, double click <strong>Username</strong>
+			column and provide your username along with email id and paste the
+			generated token in the <strong>Token</strong> column.
+		</li>
+	</ul>
+
+	<h3>👉 Gitifier: A creation from Tornado</h3>
+	From the visionary mind at Tornado comes
+	<b>Gitifier</b> — creafted by an Engineer to solve real problems and
+	simplify developers’ lives. 🧐 Wanna to 🤝 join with me to a new
+	challenging technical task ?
+
+	<h3>📄 License</h3>
+	<p> © Copyright 2026 Debadatta Mishra(DD)</p>
+	<p>Free and Open Source licensed under the Apache License, Version
+		2.0.</p>
+	✍️ Contributor: Debadatta Mishra(DD)
+	<br>
+</body>
+</html>
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <resource-bundle>messages.MyMessageBundle</resource-bundle>
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="com.ddlab.rnd.setting.PublisherSetting"/>
+        <applicationConfigurable
+                id="com.ddlab.rnd.gitifier.settings"
+                displayName="Gitifier"
+                instance="com.ddlab.rnd.setting.PublisherSettingConfig"/>
+
+        <notificationGroup
+                id="ddlabs-gitifier.notifications"
+                displayType="BALLOON"
+                isLogByDefault="false"/>
+    </extensions>
+    <actions>
+        <action id="CodePublishAction"
+                class="com.ddlab.rnd.action.CodePublishAction"
+                text="Share Code"
+                description="Share code to hosted git server" icon="/icons/share_1_16.png">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>
